@@ -143,6 +143,11 @@ Let's look at Sign Up first!
 5. If the token is legit, we make the update in the database
 6. We respond with the updated item
 
+### A Note on Hashing using bcrypt
+
+- https://codahale.com/how-to-safely-store-a-password
+- https://github.com/kelektiv/node.bcrypt.js#hash-info
+
 ## Conclusion
 
 Authentication is found in nearly every application we interact with. In this lesson we learned how to handroll our own authentication system. This has given us a thorough understanding of how authentication works. However, because authentication is what protects our application from unauthorized access it is crucial we use highly secure authentication system. We highly recommend, in real-world applications to use industry vetted third-party authentication libraries.
