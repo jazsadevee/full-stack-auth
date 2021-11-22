@@ -5,7 +5,7 @@ import Products from './screens/Products/Products'
 import ProductCreate from './screens/ProductCreate/ProductCreate'
 import ProductEdit from './screens/ProductEdit/ProductEdit'
 import ProductDetail from './screens/ProductDetail/ProductDetail'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { verifyUser } from './services/users'
 import SignUp from './screens/SignUp/SignUp'
 import SignIn from './screens/SignIn/SignIn'
@@ -24,32 +24,16 @@ const App = () => {
 
   return (
     <div className="app">
-      <Switch>
-        <Route exact path="/">
-          <Home user={user} />
-        </Route>
-        <Route path="/sign-up">
-          <SignUp setUser={setUser} />
-        </Route>
-        <Route path="/sign-in">
-          <SignIn setUser={setUser} />
-        </Route>
-        <Route path="/sign-out">
-          <SignOut setUser={setUser} />
-        </Route>
-        <Route exact path="/products">
-          <Products user={user} />
-        </Route>
-        <Route path="/add-product">
-          {user ? <ProductCreate user={user} /> : <Redirect to="/sign-up" />}
-        </Route>
-        <Route exact path="/products/:id/edit">
-          {user ? <ProductEdit user={user} /> : <Redirect to='/' />}
-        </Route>
-        <Route exact path="/products/:id">
-          <ProductDetail user={user} />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home user={user}/>} />
+        <Route path="/sign-up" element={<SignUp setUser={setUser}/>}/>
+        <Route path="/sign-in" element={<SignIn setUser={setUser}/>}/>
+        <Route path="/sign-out" element={<SignOut setUser={setUser}/>} />
+        <Route path="/products" element={<Products user={user}/>}/>
+        <Route path="/add-product" element={user ? <ProductCreate user={user} /> : <Navigate to="/sign-up" />}/>
+        <Route path="/products/:id/edit" element={user ? <ProductEdit user={user} /> : <Navigate to='/' />}/>
+        <Route path="/products/:id" element={<ProductDetail user={user} />}/>
+      </Routes>
     </div>
   )
 }
