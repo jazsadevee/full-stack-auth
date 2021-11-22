@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './SignUp.css'
 import { signUp } from '../../services/users'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = (props) => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const [form, setForm] = useState({
     username: '',
@@ -27,7 +27,7 @@ const SignUp = (props) => {
     try {
       const user = await signUp(form)
       setUser(user)
-      history.push('/')
+      navigate('/')
     } catch (error) {
       console.error(error)
       setForm({

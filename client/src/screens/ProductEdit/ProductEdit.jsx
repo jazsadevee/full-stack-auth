@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import './ProductEdit.css'
-import { useParams, Redirect } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Layout } from '../../components'
 import { getProduct, updateProduct } from '../../services/products'
 
 const ProductEdit = (props) => {
+
+  let navigate = useNavigate()
+
   const [product, setProduct] = useState({
     name: '',
     description: '',
@@ -12,7 +15,6 @@ const ProductEdit = (props) => {
     price: '',
   })
 
-  const [isUpdated, setUpdated] = useState(false)
   let { id } = useParams()
 
   useEffect(() => {
@@ -33,12 +35,8 @@ const ProductEdit = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const updated = await updateProduct(id, product)
-    setUpdated(updated)
-  }
-
-  if (isUpdated) {
-    return <Redirect to={`/products/${id}`} />
+    await updateProduct(id, product)
+    navigate(`/products/${id}`)
   }
 
   return (

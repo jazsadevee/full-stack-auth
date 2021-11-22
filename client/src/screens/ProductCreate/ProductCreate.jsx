@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import './ProductCreate.css'
 import { Layout } from '../../components'
-import { Redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { createProduct } from '../../services/products'
 
 const ProductCreate = (props) => {
+
+  let navigate = useNavigate()
+
   const [product, setProduct] = useState({
     name: '',
     description: '',
     imgURL: '',
     price: '',
   })
-
-  const [isCreated, setCreated] = useState(false)
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -24,13 +25,10 @@ const ProductCreate = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const created = await createProduct(product)
-    setCreated({ created })
+    await createProduct(product)
+    navigate('/products')
   }
 
-  if (isCreated) {
-    return <Redirect to={`/products`} />
-  }
   return (
     <Layout user={props.user}>
       <form className='create-form' onSubmit={handleSubmit}>
