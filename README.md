@@ -22,7 +22,7 @@ Turn & Talk with your neighbor and answer the following:
 - What is Authentication?
 - What is Authorization?
 
-**Bonus**: What is the difference between [hashing vs encrypting](https://gcn.com/articles/2013/12/02/hashing-vs-encryption.aspx)?
+**Bonus**: What is the difference between [hashing vs encrypting](https://www.thesslstore.com/blog/difference-encryption-hashing-salting/#:~:text=Encryption%20is%20a%20two%2Dway%20function%20where%20information%20is%20scrambled,is%20primarily%20used%20for%20authentication.)?
 
 ## Introduction
 
