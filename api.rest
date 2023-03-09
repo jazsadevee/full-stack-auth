@@ -1,0 +1,9 @@
+@baseUrl = http://localhost:8080/api/
+
+GET {{baseUrl}}/post/
+###
+
+@postId = {{GetPosts.response.body.0._id}}
+
+Get {{baseUrl}}/post/{{postId}}
+###
