@@ -1,9 +1,14 @@
-@baseUrl = http://localhost:8080/api/
+@baseUrl = http://localhost:{{$dotenv PORT}}/api
 
+# @name GetPosts
 GET {{baseUrl}}/post/
 ###
 
 @postId = {{GetPosts.response.body.0._id}}
+@postAuthor = {{GetPosts.response.body.0.author.handle}}
 
 Get {{baseUrl}}/post/{{postId}}
+###
+
+GET {{baseUrl}}/user/{{postAuthor}}
 ###

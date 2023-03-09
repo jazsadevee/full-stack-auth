@@ -1,4 +1,3 @@
-import User from '../models/users.js'
 import Post from '../models/posts.js'
 
 export async function GetPosts(req, res) {

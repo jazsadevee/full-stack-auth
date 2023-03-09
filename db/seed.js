@@ -11,7 +11,7 @@ await Post.deleteMany()
 
 const myself = await User.create({
   username: 'Jas Sade',
-  handle: 'JazSadeVee'
+  handle: 'jazsadevee'
 })
 
 await Post.insertMany([
