@@ -28,8 +28,8 @@ await Post.insertMany([
 ])
 
 const tina = await User.create({
-  username: "Tina Wink",
-  handle: "Christina"
+  username: "Christina",
+  handle: "Tina Wink"
 })
 
 await Post.create({
@@ -39,8 +39,8 @@ await Post.create({
 })
 
 const tay = await User.create({
-  username: "Macy Gray",
-  handle: "Tay"
+  username: "Cydney Taylor",
+  handle: "Macy Gray"
 })
 
 await Post.create({

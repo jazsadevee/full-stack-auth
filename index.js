@@ -5,6 +5,7 @@ import morgan from "morgan"
 import cors from 'cors'
 import postRouter from './routes/posts.js'
 import userRouter from './routes/users.js'
+import authRouter from './routes/auth.js'
 
 const PORT = process.env.PORT || 8080
 
@@ -16,6 +17,7 @@ app.use(morgan('dev'))
 
 app.use('/api/post/', postRouter)
 app.use('/api/user/', userRouter)
+app.use('/api/auth/', authRouter)
 
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`);
