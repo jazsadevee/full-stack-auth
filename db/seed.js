@@ -16,12 +16,12 @@ const myself = await User.create({
 
 await Post.insertMany([
   {
-    text: 'Typescript > Javascript\nChange my mind.',
+    text: 'Yeagerist',
     date: '2023-03-08T16:16:08.888Z',
     author: myself._id,
   },
   {
-    text: 'Rust will be the future of programming languages',
+    text: 'Eren was right',
     date: '2023-03-09T16:16:08.888Z',
     author: myself._id,
   }
@@ -36,6 +36,17 @@ await Post.create({
   text: 'I love Harry Potter & Anime',
   author: tina._id,
   date: '2023-03-09T16:16:08.888Z',
+})
+
+const tay = await User.create({
+  username: "Macy Gray",
+  handle: "Tay"
+})
+
+await Post.create({
+  text: "I'll do it if you do it first",
+  author: tay._id,
+  date: '2023-03-10T16:16:08.888Z',
 })
 
 await mongoose.disconnect()
