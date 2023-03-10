@@ -18,20 +18,9 @@ export async function GetPostById(req, res) {
 
 export async function CreatePost(req, res) {
   const { username, twuut } = req.body
-  // extract token from headers
-  const token = req.headers.authorization
-  // verify token and extra the user's info
-  const data = jwt.verify(token, TOKEN_KEY)
-  if (!data) {
-    return res.status(401).json({
-      message: 'You must signin to Twuut'
-    })
-  }
-  const { id } = data
-
   // const user = await User.findOne({ handle: username })
   const newPost = await Post.create({
-    author: id,
+    author: data.id,
     date: new Date(),
     text: twuut,
   })
