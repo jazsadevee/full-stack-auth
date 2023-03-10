@@ -10,9 +10,9 @@ export default function Signup() {
         <button>Signup</button>
       </form>
       <span>
-        Already a Twuuterer?
+        {'Already a Twuuterer? '}
         <Link to="/auth/signin">Go to Signin</Link>
-        instead
+        {' instead.'}
       </span>
     </div>
   )
